@@ -55,6 +55,10 @@
 
 #include <iostream>
 
+#ifdef QT_ADAPTER
+#include "dcadapter.h"
+#endif
+
 using namespace std;
 
 static log_handler_t def_log_handler;
@@ -1646,6 +1650,9 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 	QCoreApplication::addLibraryPath(".");
 
 	OBSApp program(argc, argv, profilerNameStore.get());
+#ifdef QT_ADAPTER
+    DCAdapter::updateCurrentPath();
+#endif
 	try {
 		bool created_log = false;
 

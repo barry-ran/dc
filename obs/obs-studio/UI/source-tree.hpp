@@ -7,6 +7,10 @@
 #include <QCheckBox>
 #include <QAbstractListModel>
 
+#ifdef QT_ADAPTER
+#include "dcadapter.h"
+#endif
+
 class QLabel;
 class QCheckBox;
 class QLineEdit;

@@ -14,6 +14,11 @@
 #pragma warning(disable : 4505)
 #endif
 
+#ifdef QT_ADAPTER
+#include "dcadapter.h"
+#endif
+
+
 static bool operator!=(const media_frames_per_second &a,
 		const media_frames_per_second &b)
 {

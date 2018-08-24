@@ -26,6 +26,10 @@
 
 #import <AppKit/AppKit.h>
 
+#ifdef QT_ADAPTER
+#include "dcadapter.h"
+#endif
+
 using namespace std;
 
 bool GetDataFilePath(const char *data, string &output)
@@ -33,6 +37,13 @@ bool GetDataFilePath(const char *data, string &output)
 	stringstream str;
 	str << OBS_DATA_PATH "/obs-studio/" << data;
 	output = str.str();
+#ifdef QT_ADAPTER
+    bool isOk = !access(output.c_str(), R_OK);
+    if(!isOk)
+    {
+        return DCAdapter::LJGetDataFilePath(data,output);
+    }
+#endif
 	return !access(output.c_str(), R_OK);
 }
 

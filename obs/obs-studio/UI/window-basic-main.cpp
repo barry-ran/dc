@@ -78,6 +78,10 @@
 
 #include <json11.hpp>
 
+#ifdef QT_ADAPTER
+#include "dcadapter.h"
+#endif
+
 using namespace json11;
 using namespace std;
 

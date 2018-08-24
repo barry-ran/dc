@@ -27,6 +27,10 @@
 
 #include <obs.h>
 
+#ifdef QT_ADAPTER
+#include "dcadapter.h"
+#endif
+
 class OBSBasic;
 class QAbstractButton;
 class QComboBox;
